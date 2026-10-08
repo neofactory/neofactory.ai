@@ -56,7 +56,7 @@ export const meta: MetaFunction = ({ data }) => {
     {
       name: "description",
       content:
-        "Manufacturing is a uniquely good training ground for physical intelligence",
+        "Neofactory builds and operates automated production lines for high-precision industries",
     },
     {
       name: "robots",
@@ -77,7 +77,7 @@ export const meta: MetaFunction = ({ data }) => {
     {
       property: "og:description",
       content:
-        "Manufacturing is a uniquely good training ground for physical intelligence",
+        "Neofactory builds and operates automated production lines for high-precision industries",
     },
     {
       property: "og:image",
@@ -98,7 +98,7 @@ export const meta: MetaFunction = ({ data }) => {
     {
       name: "twitter:description",
       content:
-        "Manufacturing is a uniquely good training ground for physical intelligence",
+        "Neofactory builds and operates automated production lines for high-precision industries",
     },
     {
       name: "twitter:image",

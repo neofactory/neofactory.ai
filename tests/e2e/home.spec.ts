@@ -4,9 +4,7 @@ test.describe("marketing site smoke tests", () => {
   test("home page renders hero headline", async ({ page }) => {
     await page.goto("/", { waitUntil: "commit" });
     await expect(
-      page.getByText(
-        "Manufacturing is a uniquely good training ground for physical intelligence."
-      )
+      page.getByRole("heading", { name: "One-person factory" })
     ).toBeVisible();
   });
 
@@ -22,18 +20,23 @@ test.describe("marketing site smoke tests", () => {
     ).toBeVisible();
   });
 
-  test("plan section lists the three belief-state milestones", async ({ page }) => {
+  test("plan section lists the four scaling milestones", async ({ page }) => {
     await page.goto("/", { waitUntil: "commit" });
-    const planCards = page.locator('[data-testid="plan-card"]');
-    await planCards.first().waitFor();
-    await planCards.first().evaluate((node) =>
+    const planHeading = page.getByRole("heading", {
+      name: "The path to hyper-scale",
+    });
+    await planHeading.waitFor();
+    await planHeading.evaluate((node) =>
       node.scrollIntoView({ behavior: "instant", block: "center" })
     );
-    await expect(planCards).toHaveCount(3);
+    await expect(planHeading).toBeVisible();
+
+    const planCards = page.locator('[data-testid="plan-card"]');
+    await expect(planCards).toHaveCount(4);
     await expect(
       planCards
         .first()
-        .getByRole("heading", { level: 3, name: "Instrumented, closed system" })
+        .getByRole("heading", { level: 3, name: "Digitized Expertise" })
     ).toBeVisible();
   });
 });

@@ -30,16 +30,13 @@ function Hero() {
       {videoContent}
 
       <div className="max-w-section !my-0 grid-layout z-20 relative gap-4">
-        <div className="col-span-full lg:col-span-10">
-          <p className="max-w-4xl leading-snug text-pretty">
-            <span className="text-[18px] xs:text-[22px] md:text-[25px] lg:text-[29px] xl:text-[33px] leading-[1.12] font-display font-semibold tracking-tight text-balance bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
-              Manufacturing is a uniquely good training ground for physical intelligence.{" "}
-            </span>
-            <span className="text-[20px] xs:text-[22px] md:text-[24px] lg:text-[28px] leading-[1.12] text-muted-foreground text-balance">
-              Manufacturing is rare among real-world domains in that it is complex, physical,
-              and yet fully specified.
-            </span>
-          </p>
+        <h1 className="select-none max-lg:mb-[20px] col-span-full lg:col-span-7 uppercase text-[32px] xs:text-[42px] md:text-[40px] lg:text-[46px] xl:text-[67px] 2xl:text-[80px] leading-heading font-bold text-wrap-balance font-display bg-gradient-to-b from-foreground to-muted-foreground bg-clip-text text-transparent">
+          One-person factory
+        </h1>
+        <div className="col-span-full lg:col-span-5 lg:col-start-8 flex flex-col gap-base lg:mt-[-5.4px]">
+          <h2 className="xs:text-[26px] lg:text-[28px] xl:text-[30px] standard-type-body text-muted-foreground text-wrap-pretty">
+            The orchestration layer for high-mix production lines in critical industries
+          </h2>
         </div>
       </div>
     </div>
@@ -48,40 +45,35 @@ function Hero() {
 
 const plans = [
   {
-    title: "Instrumented, closed system",
+    title: "Digitized Expertise",
     icon: "/icons/diamond.svg",
-    shortDescription: "",
-    bulletPoints: [
-      "Manufacturing has complete specifications and hard constraints.",
-      "Processes can be instrumented for rich, objective data collection.",
-      "The environment is closed-loop and finite: every action is testable against ground truth.",
-    ],
+    shortDescription:
+      "We're using our expertise in precision machining to digitize each step of the manufacturing process to build and operate factories where AI and robotics operate at scale.",
   },
   {
-    title: "Expertise must be modeled, not observed",
+    title: "Virtual Factories",
     icon: "/icons/cube.svg",
-    shortDescription: "",
-    bulletPoints: [
-      "Manufacturing processes are dominated by latent variables that sensors don't directly expose.",
-      "Experts function as adaptive controllers, continuously inferring hidden state and adjusting actions under uncertainty.",
-      "What appears as 'heuristics' is actually long-horizon belief-state tracking shaped by sparse, delayed physical feedback.",
-    ],
+    shortDescription:
+      "We've built a software-controlled virtual factory that allows us to simulate and solve end-to-end operations before starting production.",
   },
   {
-    title: "High-stakes validation",
+    title: "On-Site Deployments",
     icon: "/icons/triangle.svg",
-    shortDescription: "",
-    bulletPoints: [
-      "Manufacturing does not tolerate incorrect internal state.",
-      "Incorrect beliefs surface as measurable defects.",
-      "Only policies with accurate latent-state representations survive.",
-    ],
+    shortDescription:
+      "We'll build our first production line in Dallas, TX in Q3. Further lines will be deployed on site at our partner's facilities.",
+  },
+
+  {
+    title: "Built for Scale",
+    icon: "/icons/chart.svg",
+    shortDescription:
+      "As robotics and AI continue to advance, we'll add more processes, machines, and production lines to our automated operations stack.",
   },
 ];
 
 function Plan() {
   return (
-    <div className="section flex flex-col items-center justify-start gap-8 min-h-[100vh] bg-accent z-logo relative overflow-hidden pt-24 pb-24 px-6">
+    <div className="section flex flex-col items-center justify-start gap-8 min-h-[100vh] bg-accent z-logo relative overflow-hidden py-32 px-6">
       <DotPattern
         className={cn(
           "[mask-image:radial-gradient(30vw_circle_at_center,white,transparent)]",
@@ -89,62 +81,97 @@ function Plan() {
         )}
       />
 
-      <div className="max-w-3xl w-full flex flex-col mx-auto gap-8 z-50">
-        <h2 className="mx-auto max-w-[62ch] text-[1.3rem] md:text-[1.45rem] lg:text-[1.56rem] font-display font-light tracking-wide text-center uppercase leading-snug text-balance text-pretty">
-          <span className="block">
-            A manufacturing model must represent latent physical state and process dynamics,
-          </span>
-          <span className="block">
-            not just imitate what an expert typed or clicked.
-          </span>
+      <div className="max-w-2xl w-full flex flex-col mx-auto mt-12 gap-8 z-50">
+        <h2 className="text-xl lg:text-2xl font-display font-light tracking-wider text-center uppercase">
+          The path to hyper-scale
         </h2>
-        <ol className="relative w-full">
+        <p className="text-sm lg:text-base font-normal text-muted-foreground text-center">
+          Scaling high-mix low-volume manufacturing requires a new approach to
+          automation. It's not enough to automate the machines. A new layer is
+          needed to automate operations.
+        </p>
+        {plans.map((item, index) => (
           <div
-            aria-hidden="true"
-            className="absolute left-5 top-4 bottom-4 w-px bg-border/40"
-          />
-          {plans.map((item, index) => (
-            <li
-              key={item.title}
-              data-testid="plan-card"
-              className="group grid grid-cols-[40px_1fr_3ch] gap-6 py-6"
-            >
-              <div className="relative flex justify-center">
-                <div className="size-10 rounded-full border border-border/50 bg-background/5 backdrop-blur-sm grid place-items-center">
-                  <img
-                    src={item.icon}
-                    alt=""
-                    aria-hidden="true"
-                    className="size-5 opacity-90"
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-col items-start justify-start gap-2">
-                <h3 className="text-[1.25rem] md:text-[1.35rem] lg:text-[1.45rem] font-medium tracking-tight text-white">
+            key={item.title}
+            data-testid="plan-card"
+            className="group w-full bg-accent p-6 border border-border/50 hover:border-muted-foreground flex gap-6 justify-between items-center backdrop-filter backdrop-blur-xl bg-opacity-5 shadow-xl relative text-muted-foreground credit-jhey-animation"
+          >
+            <div className="flex flex-col flex-grow items-start justify-start gap-2">
+              <div className="flex items-center justify-start gap-2">
+                <img src={item.icon} alt={item.title} className="size-6" />
+                <h3 className="text-xl font-medium tracking-tight text-white">
                   {item.title}
                 </h3>
-                {item.bulletPoints?.length ? (
-                  <ul className="list-disc pl-5 text-[1.18rem] md:text-[1.2rem] font-normal tracking-tight text-muted-foreground leading-relaxed space-y-2">
-                    {item.bulletPoints.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-[1.18rem] md:text-[1.2rem] font-normal tracking-tight text-muted-foreground leading-relaxed">
-                    {item.shortDescription}
-                  </p>
-                )}
               </div>
-
-              <div className="pt-1 flex items-start justify-end">
-                <span className="text-2xl font-mono font-medium text-white/30 group-hover:text-white transition-colors">
-                  0{index + 1}
-                </span>
-              </div>
-            </li>
-          ))}
-        </ol>
+              <p className="text-sm font-normal tracking-tight text-muted-foreground">
+                {item.shortDescription}
+              </p>
+            </div>
+            <div className="flex flex-col items-end justify-center gap-2">
+              <span className="text-xl font-mono font-medium text-white/30 group-hover:text-white">
+                0{index + 1}
+              </span>
+            </div>
+            <span className="credit-jhey">
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5v14"></path>
+                </svg>
+              </span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5v14"></path>
+                </svg>
+              </span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5v14"></path>
+                </svg>
+              </span>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14"></path>
+                  <path d="M12 5v14"></path>
+                </svg>
+              </span>
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -176,21 +203,28 @@ function Mission() {
           <div className="top-[3px] absolute left-0 w-full h-px bg-accent" />
           <div className="top-[2px] absolute left-0 w-[260px] h-[3px] bg-accent" />
           <h2 className="text-base font-medium tracking-tighter top-[-22px] absolute left-0">
-             
+            Our Mission
           </h2>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="py-20">
             <h2 className="text-3xl lg:text-5xl font-display font-bold tracking-tight text-left uppercase">
-              {" "}
+              American abundance through automation
             </h2>
           </div>
           <div className="flex flex-col w-full mx-auto gap-8 ">
             <p className="text-xl text-balance tracking-tight">
-              {" "}
+              We believe that in order to restore American manufacturing
+              dominance, a new approach is needed. Instead of reducing costs
+              with lower wages and government subsidies, we envision a future
+              inspired by our past&ndash; where abundance is created through
+              American ingenuity and automation.
             </p>
             <p className="text-xl text-balance tracking-tight">
-              {" "}
+              AI and robotics are changing the underlying economics of
+              manufacturing. We have a chance to reinvent the American
+              production base, not by longing for the past, but by building the
+              future.
             </p>
             <div className="flex gap-4">
               <Button size="lg" asChild>
