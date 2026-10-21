@@ -1,5 +1,6 @@
 {
   "redirects": [
+    { "source": "/", "destination": "https://beta.neofactory.ai/", "permanent": false },
     { "source": "/:path*", "destination": "https://beta.neofactory.ai/:path*", "permanent": false }
   ]
 }
